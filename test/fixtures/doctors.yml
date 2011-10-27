@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  birthdate: 2011-10-23 15:07:41
+  has_one: 
+
+two:
+  name: MyString
+  birthdate: 2011-10-23 15:07:41
+  has_one: 

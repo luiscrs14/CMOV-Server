@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<% @doctors.each do |doctor| %>
+
+<p>
+  <b>Name:</b>
+  <%= @appointment.date %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @appointment.time %>
+</p>
+
+<p>
+  <b>Specialty:</b>
+  <%= @appointment.doctor_id %>
+</p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>
+
+

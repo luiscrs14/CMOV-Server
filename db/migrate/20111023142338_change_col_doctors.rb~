@@ -1,0 +1,8 @@
+class ChangeColDoctors < ActiveRecord::Migration
+  def up
+	rename_column :doctors, :Has_one, :Specialty
+  end
+
+  def down
+  end
+end

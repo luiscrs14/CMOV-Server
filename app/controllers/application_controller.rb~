@@ -1,0 +1,18 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery
+
+  helper_method :current_user
+
+  def check_authentication
+    user = current_user
+    if !user
+      redirect_to root_url, :notice => "Please log in!"
+    end
+  end
+
+  private
+
+  def current_user
+    @current_user ||= User.where(:api_key != '')
+  end
+end
