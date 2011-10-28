@@ -3,12 +3,12 @@ class AppointmentsController < ApplicationController
   # GET appointments
   # GET appointments.json
   def index
-    @appointments = Appointment.where("doctor_id = ? AND self.datetime > datetime('now') ", params[:doctor_id])
+    @appointments = Appointment.where("doctor_id = ? AND datetime > datetime('now') ", params[:doctor_id])
  
   
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @appointments }
+      format.json { render :json => @appointments.tojson(:except => [:created_at, :updated_at] ) }
     end
   end
 

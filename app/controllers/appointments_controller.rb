@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
   
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @appointments }
+      format.json { render :json => @appointments.to_json(:except => [:created_at, :updated_at] ) }
     end
   end
 

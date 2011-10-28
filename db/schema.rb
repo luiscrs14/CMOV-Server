@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111027154207) do
+ActiveRecord::Schema.define(:version => 20111028114730) do
 
   create_table "appointments", :force => true do |t|
     t.datetime "datetime"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(:version => 20111027154207) do
     t.string   "name"
     t.date     "birthdate"
     t.integer  "specialty_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "user_id"
     t.binary   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "patients", :force => true do |t|
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20111027154207) do
     t.string   "address"
     t.date     "birthdate"
     t.string   "gender"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "specialties", :force => true do |t|
@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(:version => 20111027154207) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
-    t.string   "password"
+    t.string   "password_hash"
     t.string   "salt"
+    t.string   "api_key",       :limit => 40, :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "api_key",    :limit => 40, :default => ""
   end
 
 end

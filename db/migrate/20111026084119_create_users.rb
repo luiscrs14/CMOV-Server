@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :password
       t.string :salt
+      t.string :api_key, :limit => 40, :default => ""
 
       t.timestamps
     end

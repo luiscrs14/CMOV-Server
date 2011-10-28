@@ -2,8 +2,8 @@ class CreateDoctors < ActiveRecord::Migration
   def change
     create_table :doctors do |t|
       t.string :name
-      t.time :birthdate
-      t.Specialty :has_one
+      t.date :birthdate
+      t.integer :specialty_id
 
       t.timestamps
     end
