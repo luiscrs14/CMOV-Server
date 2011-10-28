@@ -12,6 +12,7 @@ CmovServer::Application.routes.draw do
   resources :specialties
 
   resources :users
+	match 'users/authenticate/:username/:password' => 'users#auth'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

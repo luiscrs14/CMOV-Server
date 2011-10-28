@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+require 'sha1'
+
   # GET /users
   # GET /users.json
   def index
@@ -41,6 +43,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    #@user.api_key = ActiveSupport::SecureRandom.base64(15)
+srand
+seed = "--#{rand(10000)}--#{Time.now}--"
+@user.api_key = Digest::SHA1.hexdigest(seed)[0,15]
 
     respond_to do |format|
       if @user.save
@@ -50,6 +56,18 @@ class UsersController < ApplicationController
         format.html { render :action => "new" }
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /users/authenticate/
+  # GET /users/authenticate.json
+  def auth
+    
+    @user = User.authenticate(params[:username], params[:password])
+  
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @user}
     end
   end
 

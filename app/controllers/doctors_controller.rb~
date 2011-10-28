@@ -22,21 +22,11 @@ class DoctorsController < ApplicationController
     end
   end
 
-  # GET /doctors/1/appointments
-  # GET /doctors/1/appointments.json
-  def doc_appointments
-    @appointments = Appointment.where("doctor_id = '25'")
-    respond_to do |format|
-      format.html # showAppointments.html.erb
-      format.json { render :json => @appointments}
-    end
-  end
-
   # GET /doctors/new
   # GET /doctors/new.json
   def new
     @doctor = Doctor.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @doctor }
@@ -51,6 +41,9 @@ class DoctorsController < ApplicationController
   # POST /doctors
   # POST /doctors.json
   def create
+    
+  
+    #@revisedDoctor = params[:doctor]
     @doctor = Doctor.new(params[:doctor])
 
     respond_to do |format|

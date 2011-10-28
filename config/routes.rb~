@@ -2,6 +2,7 @@ CmovServer::Application.routes.draw do
   resources :patients
 
   resources :appointments
+	
 
 
   resources :doctors do
@@ -11,6 +12,7 @@ CmovServer::Application.routes.draw do
   resources :specialties
 
   resources :users
+	match 'users/authenticate/:username/:password' => 'users#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

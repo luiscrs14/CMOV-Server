@@ -1,4 +1,10 @@
-class Doctor < ActiveRecord::Base
+class Doctor < User
 	belongs_to:Specialty
 	has_many:Appointment
+	def photo_getter=(params[:tempFile])
+		
+		self.photo = input_data.read
+  	end
+
+
 end
