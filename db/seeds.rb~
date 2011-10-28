@@ -5,45 +5,63 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+
 	doctors = Doctor.create([{:name => 'João Filipe Rodrigues dos Santos',
 			:birthdate => '03/11/1989',
-			:specialty_id => 1
-			:user_id => 1},
+			:specialty_id => 1,
+			:user_id => 1,
+			:username =>'jfrs',
+			:password_hash => 'salto'},
 			
 			{:name => 'Luís Carlos Ramos da Silva',
 			:birthdate => '04/02/1989',
-			:specialty_id => 3
-			:user_id => 2},
+			:specialty_id => 3,
+			:user_id => 2,
+			:username =>'lcrs',
+			:password_hash => 'luis'},
 
 			{:name => 'Francisco Ricardo Pinto da Silva',
 			:birthdate => '02/28/1989',
-			:specialty_id => 4
-			:user_id => 3},
+			:specialty_id => 4,
+			:user_id => 3,
+			:username =>'frps',
+			:password_hash => 'chico'},
 
 			{:name => 'Tiago Daniel Ferreira da Silva Monteiro',
 			:birthdate => '01/09/1989',
-			:specialty_id => 2
-			:user_id => 4}])
+			:specialty_id => 2,
+			:user_id => 4,
+			:username =>'tdfsm',
+			:password_hash => 'f1'}])
 
 	patients = Patient.create([{:name => 'Francisco Silva',
-			  :address => 'Rua de cima',
-			  :birthdate => '02/04/1943',
-			  :gender => 'male'},
+			:address => 'Rua de cima',
+			:birthdate => '02/04/1943',
+			:gender => 'male',
+			:username =>'fs',
+			:password_hash => 'chico'},
 
-			  {:name => 'Deolinda Silva',
-			  :address => 'Rua de cima',
-			  :birthdate => '08/08/1945',
-			  :gender => 'female'},
+			{:name => 'Deolinda Silva',
+			:address => 'Rua de cima',
+			:birthdate => '08/08/1945',
+			:gender => 'female',
+			:username =>'ds',
+			:password_hash => 'deo'},
 
-			  {:name => 'Carlos Monteiro',
-			  :address => 'Rua da direita',
-			  :birthdate => '12/17/1967',
-			  :gender => 'male'},
+			{:name => 'Carlos Monteiro',
+			:address => 'Rua da direita',
+			:birthdate => '12/17/1967',
+			:gender => 'male',
+			:username =>'cm',
+			:password_hash => 'caca'},
 
-			  {:name => 'Maria da Luz Sousa',
-			  :address => 'Rua da esquerda',
-			  :birthdate => '11/09/1969',
-			  :gender => 'female'}])
+			{:name => 'Maria da Luz Sousa',
+			:address => 'Rua da esquerda',
+			:birthdate => '11/09/1969',
+			:gender => 'female',
+			:username =>'ml',
+			:password_hash => 'mia'}])
 
 	specialties = Specialty.create([{:name => 'Acupunctura' },
 					{:name => 'Anestesiologia' },

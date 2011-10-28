@@ -18,7 +18,7 @@
 
   <p>
     <%= f.label :password %><br />
-    <%= f.password_field :password_hash %>
+    <%= f.password_field :password %>
   </p>
 
   <p class="button"><%= f.submit %></p>

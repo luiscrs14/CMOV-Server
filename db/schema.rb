@@ -10,32 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111028114730) do
+ActiveRecord::Schema.define(:version => 20111028173632) do
 
   create_table "appointments", :force => true do |t|
     t.datetime "datetime"
     t.integer  "doctor_id"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "doctors", :force => true do |t|
-    t.string   "name"
-    t.date     "birthdate"
-    t.integer  "specialty_id"
-    t.integer  "user_id"
-    t.binary   "photo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "patients", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.date     "birthdate"
-    t.string   "gender"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20111028114730) do
     t.string   "api_key",       :limit => 40, :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
+    t.string   "name"
+    t.integer  "specialty_id"
+    t.datetime "birthdate"
+    t.binary   "photo"
+    t.string   "gender"
+    t.string   "address"
   end
 
 end
