@@ -44,9 +44,6 @@ require 'sha1'
   def create
     @user = User.new(params[:user])
     #@user.api_key = ActiveSupport::SecureRandom.base64(15)
-srand
-seed = "--#{rand(10000)}--#{Time.now}--"
-@user.api_key = Digest::SHA1.hexdigest(seed)[0,15]
 
     respond_to do |format|
       if @user.save
@@ -67,7 +64,8 @@ seed = "--#{rand(10000)}--#{Time.now}--"
   
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @user}
+      format.json{ render :partial => "show.json.erb"	}
+     # format.json { render :json => @user}
     end
   end
 

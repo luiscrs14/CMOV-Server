@@ -1,2 +1,3 @@
 class Appointment < ActiveRecord::Base
+	has_one:doctor
 end

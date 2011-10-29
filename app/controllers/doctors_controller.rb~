@@ -35,15 +35,14 @@ class DoctorsController < ApplicationController
 
   # GET /doctors/1/edit
   def edit
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find_by_username(params[:id])
   end
 
   # POST /doctors
   # POST /doctors.json
   def create
     
-  
-    #@revisedDoctor = params[:doctor]
+    
     @doctor = Doctor.new(params[:doctor])
 
     respond_to do |format|

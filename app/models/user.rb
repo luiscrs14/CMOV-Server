@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base	
-  attr_accessible :username, :password, :name, :specialty_id, :photo, :address, :gender, :birthdate, :api_key
 
+  attr_accessible :username, :password, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key
   attr_accessor :password
   before_save :encrypt_password
+  before_save :set_api_key
 
   validates :username, :presence => true, :uniqueness => true
   validates_presence_of :password, :on => :create
@@ -37,8 +38,13 @@ class User < ActiveRecord::Base
   def api_is_enabled?
     !self.api_key.empty?
   end
+
+  def set_api_key
+	srand
+	seed = "--#{rand(10000)}--#{Time.now}--"
+	self.api_key = Digest::SHA1.hexdigest(seed)[0,15]
+  end
  
- protected
  
     def self.secure_digest(*args)
       Digest::SHA1.hexdigest(args.flatten.join('--'))
@@ -49,6 +55,8 @@ class User < ActiveRecord::Base
       user.api_key = secure_digest(Time.now, (1..10).map{ rand.to_s })
       user
     end
+
+    
  
 end
 

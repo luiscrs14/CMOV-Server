@@ -1,3 +1,4 @@
 class Appointment < ActiveRecord::Base
-	belongs_to:doctor
+	has_one:doctor
+	has_one:patient
 end
