@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base	
 
-  attr_accessible :username, :password, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key
+  attr_accessible :username, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key, :password
   attr_accessor :password
   before_save :encrypt_password
   before_save :set_api_key

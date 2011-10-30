@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base	
 
-  attr_accessible :username, :password, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key
+  attr_accessible :username, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key, :password_hash
   attr_accessor :password
   before_save :encrypt_password
   before_save :set_api_key
@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   end
 
   def set_api_key
- 	self.api_key = secure_digest(Time.now, (1..10).map{ rand.to_s })
+	srand
+	seed = "--#{rand(10000)}--#{Time.now}--"
+	self.api_key = Digest::SHA1.hexdigest(seed)[0,15]
   end
  
  
