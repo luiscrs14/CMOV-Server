@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111028173632) do
+ActiveRecord::Schema.define(:version => 20111030155448) do
 
   create_table "appointments", :force => true do |t|
     t.datetime "datetime"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20111028173632) do
     t.binary   "photo"
     t.string   "gender"
     t.string   "address"
+    t.string   "password"
   end
 
 end

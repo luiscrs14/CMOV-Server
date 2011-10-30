@@ -40,7 +40,7 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(params[:patient])
+    @patient = Patient.new(params[:patient],params[:password])
 
     respond_to do |format|
       if @patient.save
