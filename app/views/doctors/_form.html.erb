@@ -38,6 +38,16 @@
     <%= f.file_field :photo_getter %>
   </div>
 
+  <div class="field">
+    <%= f.label :current_schedule %><br />
+    <%= f.date_select :current_schedule %>
+  </div>
+
+  <div class="field">
+    <%= f.label :future_schedule %><br />
+    <%= f.date_select :future_schedule %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

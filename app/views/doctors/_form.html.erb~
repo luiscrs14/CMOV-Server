@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :photo %><br />
-    <%= f.file_field :photo %>
+    <%= f.file_field :photo_getter %>
   </div>
 
   <div class="actions">

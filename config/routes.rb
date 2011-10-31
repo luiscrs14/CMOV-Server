@@ -1,5 +1,7 @@
 CmovServer::Application.routes.draw do
-  resources :patients
+  resources :patients do
+	resources :appointments
+  end
 
   resources :appointments
 	

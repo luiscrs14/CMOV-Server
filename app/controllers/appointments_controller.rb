@@ -15,10 +15,10 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
-    @appointments = Appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @appointments }
+      format.json { render :json => @appointment }
     end
   end
 
