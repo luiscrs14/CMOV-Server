@@ -1,4 +1,7 @@
 class SpecialtiesController < ApplicationController
+
+
+
   # GET /specialties
   # GET /specialties.json
   def index

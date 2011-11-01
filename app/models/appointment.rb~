@@ -1,5 +1,12 @@
 class Appointment < ActiveRecord::Base
 	has_one:doctor
 	has_one:patient
-	atrr_accessible :datetime
+
+
+	def check_api_key(api_key,id)
+		if User.where('id = ? AND api_key = ?',id, api_key) == nil		
+			true
+		else
+			false
+	end
 end

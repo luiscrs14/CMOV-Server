@@ -35,7 +35,7 @@ class DoctorsController < ApplicationController
 
   # GET /doctors/1/edit
   def edit
-    @doctor = Doctor.find_by_username(params[:id])
+    @doctor = Doctor.find(params[:id])
   end
 
   # POST /doctors

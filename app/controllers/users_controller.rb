@@ -43,6 +43,8 @@ require 'sha1'
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.upload
+
     #@user.api_key = ActiveSupport::SecureRandom.base64(15)
 
     respond_to do |format|

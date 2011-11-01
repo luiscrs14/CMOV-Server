@@ -19,13 +19,4 @@
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
 
-def show
-  @doctor = Doctor.find( params[:id] )
-  respond_to do |format|
-    format.html
-    format.json{
-      render :json => @user.to_json
-	
-    }
-  end
-end
+

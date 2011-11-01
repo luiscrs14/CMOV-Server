@@ -1,4 +1,4 @@
-<%= form_for(@doctor, :html => {:multipart => true}) do |f| %>
+<%= form_for @doctor do |f| %>
   <% if @doctor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
@@ -35,7 +35,17 @@
   </div>
   <div class="field">
     <%= f.label :photo %><br />
-    <%= f.file_field :photo_getter %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_schedule %><br />
+    <%= f.date_select :current_schedule %>
+  </div>
+
+  <div class="field">
+    <%= f.label :future_schedule %><br />
+    <%= f.date_select :future_schedule %>
   </div>
 
   <div class="actions">

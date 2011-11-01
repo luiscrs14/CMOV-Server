@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031170329) do
+ActiveRecord::Schema.define(:version => 20111101151248) do
 
   create_table "appointments", :force => true do |t|
     t.datetime "datetime"
@@ -30,19 +30,22 @@ ActiveRecord::Schema.define(:version => 20111031170329) do
     t.string   "username"
     t.string   "password_hash"
     t.string   "salt"
-    t.string   "api_key",          :limit => 40, :default => ""
+    t.string   "api_key",            :limit => 40, :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
     t.string   "name"
     t.integer  "specialty_id"
     t.datetime "birthdate"
-    t.binary   "photo"
     t.string   "gender"
     t.string   "address"
     t.string   "password"
     t.string   "current_schedule"
     t.string   "future_schedule"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

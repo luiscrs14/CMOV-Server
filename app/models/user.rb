@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base	
 
   attr_accessible :username, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key, :password, 
-:password_hash, :current_schedule, :future_schedule
-  attr_accessor :password
+:password_hash, :current_schedule, :future_schedule 
+  attr_accessor :password, :photo_file_name
   before_save :encrypt_password
   before_save :set_api_key
 
+ 
   validates :username, :presence => true, :uniqueness => true
   validates_presence_of :password, :on => :create
 
@@ -17,6 +18,13 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+	def upload
+  		uploaded_io = params[:user][:photo]
+  File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+    file.write(uploaded_io.read)
+  end
+end
 
   private
 

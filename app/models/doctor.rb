@@ -2,15 +2,14 @@ class Doctor < User
 	belongs_to:specialty
 	has_many:appointments
 
-	def update_schedule()
-		
-		if future_schedule[0..9] <= date('now')
-			current_schedule = future_schedule
-			future_schedule = nil
-		end
-	end
+	attr_accessible :photo
 
-	#parse_schedule(schedule)
-#		doctor
-#    end
+	def self save_photo
+	name =  self.photo.original_filename
+    directory = "public"
+    # create the file path
+    path = File.join(directory, name)
+    # write the file
+    File.open(path, "wb") { |f| f.write(self.photo.read) }
+	end
 end

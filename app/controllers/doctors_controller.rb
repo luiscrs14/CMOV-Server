@@ -27,6 +27,7 @@ class DoctorsController < ApplicationController
   def new
     @doctor = Doctor.new
 	
+	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @doctor }
@@ -41,8 +42,6 @@ class DoctorsController < ApplicationController
   # POST /doctors
   # POST /doctors.json
   def create
-    
-    
     @doctor = Doctor.new(params[:doctor])
 
     respond_to do |format|
