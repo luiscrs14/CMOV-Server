@@ -1,0 +1,2 @@
+module FutureAppointmentsHelper
+end

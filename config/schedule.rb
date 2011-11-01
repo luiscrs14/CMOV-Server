@@ -7,8 +7,11 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
- every 1.minute do
-    command "echo 'you can use raw cron syntax too'"	
+
+
+ every 5.minutes do
+    rake "doctors:updateschedule", :environment => :development
+	command print "ola"	, :environment => :development
  end
 #
 # every 4.days do

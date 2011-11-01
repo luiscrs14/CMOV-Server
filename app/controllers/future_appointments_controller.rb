@@ -1,16 +1,44 @@
-class AppointmentsController < ApplicationController
-
-  # GET appointments
-  # GET appointments.json
+class FutureAppointmentsController < ApplicationController
+ 
+  # GET futureAppointments
+  # GET futureAppointments.json
   def index
-    @appointments = Appointment.all
+	if !params.has_key?(:datetime)
+    	@appointments = Appointment.where("doctor_id = ? AND datetime > datetime('now') ", params[:doctor_id])
+    else
+		@appointments = Appointment.where("doctor_id = ? AND datetime > ? ", params[:doctor_id], params[:datetime])
+	end
+ 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @appointments.to_json(:except => [:created_at, :updated_at] ) }
     end
   end
 
+  # GET futureAppointments
+  # GET futureAppointments.json
+  def futureAppointments
+    @appointments = Appointment.where("doctor_id = ? AND datetime > datetime('now') ", params[:doctor_id])
  
+  
+    respond_to do |format|
+      format.html # futureAppointments.html.erb
+      format.json { render :json => @appointments.to_json(:except => [:created_at, :updated_at] ) }
+    end
+  end
+
+  # GET appointments/appointmentsFrom/1
+  # GET appointments/appointmentsFrom/1.json
+  def appointmentsFrom
+    @appointments = Appointment.where("doctor_id = ? AND datetime > ? ", params[:doctor_id], params[:datetime])
+ 
+  
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @appointments.to_json(:except => [:created_at, :updated_at] ) }
+    end
+  end
+
   # GET /appointments/1
   # GET /appointments/1.json
   def show
@@ -80,4 +108,5 @@ class AppointmentsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end

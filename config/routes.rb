@@ -1,14 +1,19 @@
 CmovServer::Application.routes.draw do
+
+#  resources :futureAppointments
+  resources :appointments
+# end	
+
   resources :patients do
 	resources :appointments
   end
 
-  resources :appointments
-	
+
 
 
   resources :doctors do
 	resources:appointments
+	resources :futureAppointments
   end
 
   resources :specialties
