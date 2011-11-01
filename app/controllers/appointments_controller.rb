@@ -3,7 +3,13 @@ class AppointmentsController < ApplicationController
   # GET appointments
   # GET appointments.json
   def index
+	if params.has_key?(:doctor_id)
+    @appointments = Appointment.where("doctor_id = ? AND datetime > datetime('now')",params[:doctor_id])
+    elsif params.has_key?(:patient_id)
+    @appointments = Appointment.where("patient_id = ? AND datetime > datetime('now')",params[:patient_id])
+    else 
     @appointments = Appointment.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @appointments.to_json(:except => [:created_at, :updated_at] ) }
