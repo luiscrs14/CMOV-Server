@@ -730,7 +730,6 @@ doctors = Doctor.create([{:name => 'Natália Andrade da Costa',
 					 :doctor_id => 13},
 					 {:datetime => '11/09/2011 19:30:00',
 					 :patient_id => 59,
-					 :doctor_id => 13}
-])
+					 :doctor_id => 13}])
 
 
