@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base	
 
   attr_accessible :username, :name, :type, :specialty_id, :photo, :address, :gender, :birthdate, :api_key, :password, 
-:password_hash, :current_schedule, :future_schedule 
-  attr_accessor :password, :photo_file_name
+:password_hash, :current_schedule, :future_schedule, :photo_url 
+  attr_accessor :password
   before_save :encrypt_password
   before_save :set_api_key
 

@@ -33,4 +33,5 @@ gem "bcrypt-ruby", :require => "bcrypt"
 
   gem 'execjs'
   gem 'therubyracer'
+  gem "paperclip", "~> 2.4"
 

@@ -3,9 +3,10 @@ class FutureAppointmentsController < ApplicationController
   # GET futureAppointments
   # GET futureAppointments.json
   def index
-	if !params.has_key?(:datetime)
+	if !params.has_key?(:datetime) 
     	@appointments = Appointment.where("doctor_id = ? AND datetime > datetime('now') ", params[:doctor_id])
-    else
+	elsif params.has_key?(:datetime) AND params.has_key?(:datetime_end)
+	else
 		@appointments = Appointment.where("doctor_id = ? AND datetime > ? ", params[:doctor_id], params[:datetime])
 	end
  
