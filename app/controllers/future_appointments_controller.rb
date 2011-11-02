@@ -6,9 +6,9 @@ class FutureAppointmentsController < ApplicationController
 	if params.has_key?(:datetime) && params.has_key?(:end)
 		@appointments = Appointment.where("doctor_id = ? AND datetime > ? AND datetime < ? ", params[:doctor_id],params[:datetime], params[:end])
 	elsif params.has_key?(:datetime) 
-    	@appointments = Appointment.where("doctor_id = ? AND datetime = ? ", params[:doctor_id], params[:datetime])
+    	@appointments = Appointment.where("doctor_id = ? AND datetime >= ? ", params[:doctor_id], params[:datetime])
 	else
-		@appointments = Appointment.where("doctor_id = ? AND datetime = date('now') ", params[:doctor_id])
+		@appointments = Appointment.where("doctor_id = ? AND datetime > date('now') ", params[:doctor_id])
 	end
  
     respond_to do |format|
